@@ -16,6 +16,18 @@ string Format::ElapsedTime(long seconds) {
     seconds = seconds % 3600;
     minutes = seconds / 60;
     seconds = seconds % 60;
-    string formattedTime = to_string(hours) + "." + to_string(minutes) + "." + to_string(seconds);
+
+    string secondString;
+    string minuteString;
+    string hoursString;
+
+    if (hours < 10){hoursString = "0" + to_string(hours);}
+    else {hoursString = to_string(hours);}
+    if (minutes < 10){minuteString = "0" + to_string(minutes);}
+    else {minuteString = to_string(minutes);}
+    if (seconds < 10){secondString = "0" + to_string(seconds);}
+    else {secondString = to_string(seconds);}
+
+    string formattedTime = hoursString + ":" + minuteString + ":" + secondString;
     return formattedTime; 
 }
